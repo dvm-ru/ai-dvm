@@ -1,0 +1,100 @@
+{
+  "name": "ai-dvm",
+  "displayName": "AI development",
+  "publisher": "avrgr",
+  "description": "Allows you to use the artificial intelligence language model 'GigaChat' to continue your code.",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.85.1"
+  },
+  "categories": [
+    "Other"
+  ],
+  "icon": "logo.png",
+  "activationEvents": [],
+  "main": "./extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "ai.setprompt",
+        "title": "AI Set Prompt"
+      },
+      {
+        "command": "ai.opensettings",
+        "title": "AI Settings"
+      },
+      {
+        "command": "ai.generate_responce",
+        "title": "AI generate responce"
+      },
+      {
+        "command": "ai.print_responce",
+        "title": "AI print one line"
+      }
+    ],
+    "configuration": {
+      "title": "AI configuration",
+      "properties": {
+        "AI configuration.authorization_data": {
+          "type": "string",
+          "default": "-- enter the authorization data --",
+          "description": "Enter the GigaChat API authorization data"
+        },
+        "AI configuration.scope": {
+          "type": "string",
+          "default": "GIGACHAT_API_PERS",
+          "description": "Enter scope"
+        },
+        "AI configuration.initial_prompt": {
+          "type": "string",
+          "default": "Ты - помощник в создании программного кода. После получения пояснений к коду, тебе будет отправлен сам код. Продолжай его, не добавляя ничего кроме продолжения кода!",
+          "description": "Enter initial prompt"
+        },
+        "AI configuration.max_tokens": {
+          "type": "integer",
+          "default": 128,
+          "description": "Enter token limit"
+        },
+        "AI configuration.max_lines": {
+          "type": "integer",
+          "default": 100,
+          "description": "Enter line restriction"
+        }
+      }
+    },
+    "keybindings": [
+      {
+        "command": "ai.print_responce",
+        "key": "alt+enter",
+        "mac": "alt+enter",
+        "linux": "alt+enter",
+        "when": "editorTextFocus"
+      },
+      {
+        "command": "ai.generate_responce",
+        "key": "alt+g",
+        "mac": "alt+g",
+        "linux": "alt+g",
+        "when": "editorTextFocus"
+      }
+    ]
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "pretest": "npm run lint",
+    "test": "node ./test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/mocha": "^10.0.3",
+    "@types/node": "18.x",
+    "@types/vscode": "^1.84.0",
+    "@vscode/test-electron": "^2.3.6",
+    "eslint": "^8.52.0",
+    "glob": "^10.3.10",
+    "mocha": "^10.2.0",
+    "typescript": "^5.2.2"
+  },
+  "dependencies": {
+    "axios": "^1.6.2"
+  }
+}
