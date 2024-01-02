@@ -1,6 +1,6 @@
 {
   "name": "ai-dvm",
-  "displayName": "AI development",
+  "displayName": "AI-assisted development",
   "publisher": "avrgr",
   "description": "Allows you to use the artificial intelligence language model 'GigaChat' to continue your code.",
   "version": "0.0.1",
@@ -12,66 +12,66 @@
   ],
   "icon": "logo.png",
   "activationEvents": [],
-  "main": "./extension.js",
+  "main": "./src/extension.js",
   "contributes": {
     "commands": [
       {
-        "command": "ai-dvm.setprompt",
-        "title": "AI Set Prompt"
+        "command": "ai-dvm.set_prompt",
+        "title": "AI-dvm Set Prompt"
       },
       {
-        "command": "ai-dvm.opensettings",
-        "title": "AI Settings"
+        "command": "ai-dvm.open_settings",
+        "title": "AI-dvm Settings"
       },
       {
-        "command": "ai-dvm.generate_responce",
-        "title": "AI generate responce"
+        "command": "ai-dvm.generate_response",
+        "title": "AI-dvm Generate response"
       },
       {
-        "command": "ai-dvm.print_responce",
-        "title": "AI print one line"
+        "command": "ai-dvm.print_response",
+        "title": "AI-dvm Print one line of response"
       }
     ],
     "configuration": {
-      "title": "AI-dvm configuration",
+      "title": "AI-dvm Configuration",
       "properties": {
-        "AI-dvm configuration.authorization_data": {
+        "AI-dvm Configuration.authorization_data": {
           "type": "string",
-          "default": "-- enter the authorization data --",
-          "description": "Enter the GigaChat API authorization data"
+          "default": "insert the authorization data",
+          "description": "GigaChat API authorization data"
         },
-        "AI-dvm configuration.scope": {
+        "AI-dvm Configuration.scope": {
           "type": "string",
           "default": "GIGACHAT_API_PERS",
-          "description": "Enter scope"
+          "description": "Scope"
         },
-        "AI-dvm configuration.initial_prompt": {
+        "AI-dvm Configuration.initial_prompt": {
           "type": "string",
-          "default": "Ты - помощник в создании программного кода. После получения пояснений к коду, тебе будет отправлен сам код. Продолжай его, не добавляя ничего кроме продолжения кода!",
+          "default": "Ты - помощник в создании программного кода. После получения пояснений к коду, тебе будет отправлен сам код. Продолжай его, не добавляя ничего, кроме продолжения кода!",
           "description": "Enter initial prompt"
         },
-        "AI-dvm configuration.max_tokens": {
+        "AI-dvm Configuration.max_tokens": {
           "type": "integer",
           "default": 128,
-          "description": "Enter token limit"
+          "description": "Max token limit"
         },
-        "AI-dvm configuration.max_lines": {
+        "AI-dvm Configuration.max_lines": {
           "type": "integer",
           "default": 100,
-          "description": "Enter line restriction"
+          "description": "Lines depth limit"
         }
       }
     },
     "keybindings": [
       {
-        "command": "ai-dvm.print_responce",
+        "command": "ai-dvm.print_response",
         "key": "alt+enter",
         "mac": "alt+enter",
         "linux": "alt+enter",
         "when": "editorTextFocus"
       },
       {
-        "command": "ai-dvm.generate_responce",
+        "command": "ai-dvm.generate_response",
         "key": "alt+g",
         "mac": "alt+g",
         "linux": "alt+g",
@@ -80,9 +80,7 @@
     ]
   },
   "scripts": {
-    "lint": "eslint .",
-    "pretest": "npm run lint",
-    "test": "node ./test/runTest.js"
+    "format": "prettier --write \"src/**/*.js\""
   },
   "devDependencies": {
     "@types/mocha": "^10.0.3",
@@ -92,7 +90,8 @@
     "eslint": "^8.52.0",
     "glob": "^10.3.10",
     "mocha": "^10.2.0",
-    "typescript": "^5.2.2"
+    "typescript": "^5.2.2",
+    "prettier": "^3.0.0"
   },
   "dependencies": {
     "axios": "^1.6.2"
