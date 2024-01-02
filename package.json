@@ -3,13 +3,30 @@
   "displayName": "AI-assisted development",
   "publisher": "avrgr",
   "description": "Allows you to use the artificial intelligence language model 'GigaChat' to continue your code.",
-  "version": "0.0.1",
+  "version": "0.1.2",
   "engines": {
     "vscode": "^1.84.0"
   },
   "categories": [
-    "Other"
+    "Other",
+    "Programming Languages",
+    "Linters",
+    "Formatters",
+    "Data Science",
+    "Machine Learning",
+    "Education",
+    "Testing"
   ],
+  "keywords": [
+    "ai",
+    "gigachat",
+    "assistant",
+    "ai-assisted"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dvm-ru/ai-dvm.git"
+    },
   "icon": "logo.png",
   "activationEvents": [],
   "main": "./src/extension.js",
